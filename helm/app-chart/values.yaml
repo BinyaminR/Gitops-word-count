@@ -1,0 +1,54 @@
+# Default values for app-chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# values.yaml
+
+mongodb:
+  image: mongo:5.0
+  labelapp: mongo
+  replicas: 1
+  containerPort: 27017
+  storageSize: 1Gi
+  volumename: mongo-claim0
+  persistentVolumeClaim:
+   storageClass: "" # Specify the storage class name if needed
+   accessModes: ReadWriteOnce
+   storageSize: 1Gi
+  service:
+   name: mongo-service
+   port: 27017
+
+mongoExpress:
+  image: mongo-express
+  labelapp: mongo-express
+  replicas: 1
+  containerPort: 8081
+  service:
+    name: mongo-express-service
+    port: 8081
+    type: LoadBalancer
+    nodePort: 30000
+
+webApp:
+  image: binyamin22/wc-flask-app:v1.3
+  labelapp: webapp
+  replicas: 1
+  containerPort: 5000
+  service:
+    name: webapp-service
+    type: NodePort
+    port: 5000
+    nodePort: 30100
+
+mongoConfig:
+  name: mongo-config
+  data:
+    mongourl: mongo-service
+
+mongoSecret:
+  name: mongo-secret
+  type: Opaque
+  data:
+    mongouser: bW9uZ291c2Vy
+    mongopassword: bW9uZ29wYXNzd29yZA==

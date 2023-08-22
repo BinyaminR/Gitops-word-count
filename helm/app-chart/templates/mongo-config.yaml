@@ -1,0 +1,7 @@
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.mongoConfig.name }}
+data:
+  mongo-url: {{ .Values.mongoConfig.data.mongourl }}
