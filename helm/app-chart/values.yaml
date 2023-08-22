@@ -31,7 +31,7 @@ mongoExpress:
     nodePort: 30000
 
 webApp:
-  image: binyamin22/w-count:
+  image: binyamin22/w-count:v1.0.1
   labelapp: webapp
   replicas: 1
   containerPort: 5000
