@@ -37,7 +37,7 @@ webApp:
   containerPort: 5000
   service:
     name: webapp-service
-    type: NodePort
+    type: LoadBalancer
     port: 5000
     nodePort: 30100
 
