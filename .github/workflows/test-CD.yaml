@@ -34,3 +34,6 @@ jobs:
       
     - name: Take a nap
       run: sleep 30   
+
+    - name: Tast cluster
+      run: ./test.sh
