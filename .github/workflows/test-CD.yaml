@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - feature
-    paths:
-      - /helm/app-chart/values.yaml
 
 
 jobs:
