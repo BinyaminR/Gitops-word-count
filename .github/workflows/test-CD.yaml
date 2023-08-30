@@ -1,0 +1,38 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - feature
+    paths:
+      - /helm/app-chart/values.yaml
+
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        ref: feature 
+    
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+    
+    - name: Start minikube
+      uses: medyagh/setup-minikube@master
+      
+    - name: Try the cluster !
+      run: kubectl get pods -A        
+      
+    - name: Deploy to minikube
+      run: |
+          helm install app helm/app-chart/
+      
+    - name: Take a nap
+      run: sleep 30   
