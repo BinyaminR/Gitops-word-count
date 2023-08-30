@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-# values.yaml hi
+# values.yaml 
 
 mongodb:
   image: mongo:5.0
