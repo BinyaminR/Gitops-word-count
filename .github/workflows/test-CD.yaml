@@ -36,4 +36,4 @@ jobs:
       run: sleep 30   
 
     - name: Tast cluster
-      run: ./test.sh
+      run: ./helm/app-chart/test.sh
