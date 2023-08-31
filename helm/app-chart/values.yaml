@@ -21,7 +21,7 @@ mongodb:
 mongoExpress:
   image: mongo-express
   labelapp: mongo-express
-  replicas: 1
+  replicas: 2
   containerPort: 8081
   service:
     name: mongo-express-service
