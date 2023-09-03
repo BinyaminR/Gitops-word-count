@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # Get the pod names for the web page and database pods
 web_page_pod=$(kubectl get pods -l app=webapp -o jsonpath='{.items[0].metadata.name}') >/dev/null 2>&1
 database_pod_ip=$(kubectl get pods -l app=mongo -o jsonpath='{.items[0].status.podIP}') >/dev/null 2>&1
